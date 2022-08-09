@@ -1,0 +1,15 @@
+apiVersion: spv.no/v1
+kind: AzureKeyVaultSecret
+metadata:
+  name: cert-sync
+  namespace: certsync
+spec:
+  vault:
+    name: trfrm-kv
+    object:
+      name: nginx-cert-test
+      type: certificate
+  output:
+    secret:
+      name: nginx-cert
+      type: kubernetes.io/tls
